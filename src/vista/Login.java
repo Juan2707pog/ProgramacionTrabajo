@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Fondos.Fondos;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -14,6 +17,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Login extends JFrame {
 
@@ -25,57 +30,65 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+        setBounds(100, 100, 450, 300);
+        contentPane = new Fondos("LoginFondo.jpg");
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        setLocationRelativeTo(null);//CENTRO
+        setResizable(false); // Para que no se pueda cambiar tamaño
+
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+
+	
+
 		
 		passwordInput = new JTextField();
 		passwordInput.setBounds(115, 124, 190, 20);
-		panel.add(passwordInput);
+		contentPane.add(passwordInput);
 		passwordInput.setColumns(10);
 		
 		userInput = new JTextField();
 		userInput.setColumns(10);
 		userInput.setBounds(115, 62, 190, 20);
-		panel.add(userInput);
+		contentPane.add(userInput);
 		
 		JLabel userLabel = new JLabel("Usuario");
-		userLabel.setBounds(115, 37, 46, 14);
-		panel.add(userLabel);
+		userLabel.setForeground(new Color(173, 255, 47));
+		userLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		userLabel.setBounds(177, 37, 89, 14);
+		contentPane.add(userLabel);
 		
 		JLabel passwordLabel = new JLabel("Contrase\u00F1a");
-		passwordLabel.setBounds(115, 99, 76, 14);
-		panel.add(passwordLabel);
+		passwordLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		passwordLabel.setForeground(new Color(173, 255, 47));
+		passwordLabel.setBounds(164, 93, 102, 20);
+		contentPane.add(passwordLabel);
 		
-		JButton insertButton = new JButton("Insertar");
+		JButton insertButton = new JButton("Registrar");
 		insertButton.setBounds(10, 168, 89, 23);
-		panel.add(insertButton);
+		contentPane.add(insertButton);
 		
 		JButton loginButton = new JButton("Entrar");
 		loginButton.setBounds(115, 168, 89, 23);
-		panel.add(loginButton);
+		contentPane.add(loginButton);
 		
 		JButton updateButton = new JButton("Actualizar");
 		updateButton.setBounds(214, 168, 101, 23);
-		panel.add(updateButton);
+		contentPane.add(updateButton);
 		
 		JButton deleteButton = new JButton("Eliminar");
 		deleteButton.setBounds(325, 168, 89, 23);
-		panel.add(deleteButton);
+		contentPane.add(deleteButton);
 		
 		// Acciones
 		
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Campeones().setVisible(true);
-                dispose();
+				dispose();
+
                 
 				// Llamar al controlador
 				String usuario = userInput.getText();
