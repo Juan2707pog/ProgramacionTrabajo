@@ -31,21 +31,7 @@ public class ExportarCampeones extends JFrame {
 	String barra=File.pathSeparator;
 	String CrearUbicacion=System.getProperty("user.dir")+barra+"DatosTXT"+barra;
 //Creamos la carpeta donde aparecerá el txt
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ExportarCampeones frame = new ExportarCampeones();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 	private void crear() {
 		String archivo=NombreInput.getText()+".txt";
 		File CrearUbi=new File(CrearUbicacion);
@@ -152,6 +138,7 @@ public class ExportarCampeones extends JFrame {
 		contentPane.add(crearTxt);
 		
 		JButton crearTxt_1 = new JButton("Atr\u00E1s");
+		crearTxt_1.setBackground(SystemColor.activeCaption);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, crearTxt_1, 130, SpringLayout.SOUTH, HistoriaInput);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, crearTxt_1, -10, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, crearTxt_1, -169, SpringLayout.EAST, contentPane);
@@ -185,6 +172,7 @@ public class ExportarCampeones extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Eliminar Personaje");
+		btnNewButton_1.setBackground(SystemColor.activeCaption);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Nombre = NombreInput.getText();

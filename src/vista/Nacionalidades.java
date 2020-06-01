@@ -6,42 +6,34 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import Fondos.Fondos;
+import bbdd.conexion;
 
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTable;
+import java.awt.SystemColor;
+import java.awt.ScrollPane;
 
 public class Nacionalidades extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel contentPane_1;
 	private JTable table;
-	private JTable table_1;
 	private JTable table_2;
+	private JTable table_1;
+	private JTable table_3;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Nacionalidades frame = new Nacionalidades();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -62,8 +54,34 @@ public class Nacionalidades extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Demacia1.jpg")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Demacia().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Demacia'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
 		contentPane_1.add(btnNewButton);
@@ -77,10 +95,37 @@ public class Nacionalidades extends JFrame {
 		btnNewButton_1.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Noxus.jpg")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Noxus().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Noxus'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
+
 		contentPane_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("");
@@ -90,8 +135,34 @@ public class Nacionalidades extends JFrame {
 		btnNewButton_1_1.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Piltover1.jpg")));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Piltover().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Piltover'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
 		contentPane_1.add(btnNewButton_1_1);
@@ -104,8 +175,34 @@ public class Nacionalidades extends JFrame {
 		btnNewButton_1_2.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Jonia1.jpg")));
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Jonia().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Jonia'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
 		contentPane_1.add(btnNewButton_1_2);
@@ -117,8 +214,34 @@ public class Nacionalidades extends JFrame {
 		btnNewButton_1_3.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Freljord.jpg")));
 		btnNewButton_1_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Freljord().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Freljord'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
 		contentPane_1.add(btnNewButton_1_3);
@@ -131,8 +254,34 @@ public class Nacionalidades extends JFrame {
 		btnNewButton_1_4.setIcon(new ImageIcon(Nacionalidades.class.getResource("/Fondos/Shurima.jpg")));
 		btnNewButton_1_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new vista.Shurima().setVisible(true);
-                dispose();
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Shurima'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
 			}
 		});
 		contentPane_1.add(btnNewButton_1_4);
@@ -190,23 +339,76 @@ public class Nacionalidades extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, table, 0, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, table, 424, SpringLayout.WEST, contentPane);
 		
-		table_1 = new JTable();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, table_1, -41, SpringLayout.SOUTH, contentPane_1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, table_1, 192, SpringLayout.WEST, contentPane_1);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, table_1, -109, SpringLayout.SOUTH, contentPane_1);
-		sl_contentPane.putConstraint(SpringLayout.EAST, table_1, 57, SpringLayout.WEST, contentPane_1);
-		contentPane_1.add(table_1);
-		
 		JButton btnNewButton_2 = new JButton("Atr\u00E1s");
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_2, 0, SpringLayout.EAST, lblNewLabel_2);
+		btnNewButton_2.setBackground(SystemColor.activeCaption);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new vista.Campeones().setVisible(true);
                 dispose();
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_2, -23, SpringLayout.SOUTH, contentPane_1);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_2, -166, SpringLayout.EAST, contentPane_1);
 		contentPane_1.add(btnNewButton_2);
+		
+
+		
+		JButton btnNewButton_3 = new JButton("New button");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_3, 0, SpringLayout.NORTH, btnNewButton_2);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_3, 0, SpringLayout.EAST, btnNewButton_1_3);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Noxus'";
+
+
+	                DefaultTableModel model = new DefaultTableModel();
+
+	                model.addColumn("Nombre");
+	                model.addColumn("Nacionalidad");
+	                model.addColumn("Historia");
+
+
+
+	                table_3.setModel(model);
+
+	                String[] dato = new String[6];
+
+	                try {
+
+	                    ResultSet result = conexion.EjecutarSentencia(sql);
+
+	                    while (result.next()) {
+	                        dato[0] = result.getString(1);
+	                        dato[1] = result.getString(2);
+	                        dato[2] = result.getString(3);
+	                        model.addRow(dato);
+	                    }
+	                }catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
+			}
+		});
+		contentPane_1.add(btnNewButton_3);
+
+		ScrollPane scrollPane = new ScrollPane();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_2, 17, SpringLayout.SOUTH, scrollPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 16, SpringLayout.SOUTH, btnNewButton_1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 0, SpringLayout.WEST, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 116, SpringLayout.SOUTH, btnNewButton_1);
+		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, 0, SpringLayout.EAST, btnNewButton_1_3);
+		table_3 = new JTable();
+		table_3.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nombre", "Nacionalidad", "Historia"
+			}
+		));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, table_3, 40, SpringLayout.SOUTH, btnNewButton_1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, table_3, 0, SpringLayout.EAST, btnNewButton_1_3);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, table_3, 40, SpringLayout.SOUTH, btnNewButton_1);
+		sl_contentPane.putConstraint(SpringLayout.EAST, table_3, 0, SpringLayout.EAST, btnNewButton_1_3);
+		scrollPane.add(table_3);
+		contentPane_1.add(scrollPane);
 		
 
 
