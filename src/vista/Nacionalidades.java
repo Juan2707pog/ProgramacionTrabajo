@@ -349,45 +349,6 @@ public class Nacionalidades extends JFrame {
 			}
 		});
 		contentPane_1.add(btnNewButton_2);
-		
-
-		
-		JButton btnNewButton_3 = new JButton("New button");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_3, 0, SpringLayout.NORTH, btnNewButton_2);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_3, 0, SpringLayout.EAST, btnNewButton_1_3);
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Noxus'";
-
-
-	                DefaultTableModel model = new DefaultTableModel();
-
-	                model.addColumn("Nombre");
-	                model.addColumn("Nacionalidad");
-	                model.addColumn("Historia");
-
-
-
-	                table_3.setModel(model);
-
-	                String[] dato = new String[6];
-
-	                try {
-
-	                    ResultSet result = conexion.EjecutarSentencia(sql);
-
-	                    while (result.next()) {
-	                        dato[0] = result.getString(1);
-	                        dato[1] = result.getString(2);
-	                        dato[2] = result.getString(3);
-	                        model.addRow(dato);
-	                    }
-	                }catch (SQLException e1) {
-	                    e1.printStackTrace();
-	                }
-			}
-		});
-		contentPane_1.add(btnNewButton_3);
 
 		ScrollPane scrollPane = new ScrollPane();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_2, 17, SpringLayout.SOUTH, scrollPane);
