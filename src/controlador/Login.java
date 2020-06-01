@@ -24,9 +24,12 @@ public class Login {
 		// Recoger los usuarios
 		boolean check = new modelo.Users().checkUserAndPass(usuario, password);
 		if(check) {
-			JOptionPane.showMessageDialog(null, "Usuario correcto");
+			JOptionPane.showMessageDialog(null, "¡Bienvenidos a Universo LoL!");
+			new vista.Campeones().setVisible(true);
+         
+
 		}else { // Sino error
-			JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+			JOptionPane.showMessageDialog(null, "Eh.... ¿Tú quién eres?");
 		}
 	}
 	

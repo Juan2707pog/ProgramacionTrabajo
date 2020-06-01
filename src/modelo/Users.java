@@ -37,5 +37,7 @@ public class Users {
 	public void deleteUser(String user) {
 		conexion.EjecutarUpdate("DELETE FROM users WHERE usuario = '"+user+"';");
 	}
+
+
 	
 }

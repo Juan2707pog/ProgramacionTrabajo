@@ -2,26 +2,27 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.SpringLayout;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import bbdd.conexion;
+import java.awt.Color;
 
-import javax.swing.JTable;
-import javax.swing.SpringLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-
-public class Noxus extends JFrame {
+public class Freljord extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -42,10 +43,11 @@ public class Noxus extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Noxus() {
+	public Freljord() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
@@ -59,9 +61,14 @@ public class Noxus extends JFrame {
 		contentPane.add(table);
 		
 		JButton btnNewButton = new JButton("Mostrar Tabla");
+		btnNewButton.setBackground(new Color(30, 144, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 10, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, table);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -18, SpringLayout.NORTH, table);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 155, SpringLayout.WEST, contentPane);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Noxus'";
+				 String sql = "SELECT * FROM Campeones WHERE Nacionalidad='Freljord'";
 
 
 	                DefaultTableModel model = new DefaultTableModel();
@@ -92,10 +99,21 @@ public class Noxus extends JFrame {
 
 	            }
 	        });
-
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 24, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -167, SpringLayout.EAST, contentPane);
 		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Volver atr\u00E1s");
+		btnNewButton_1.setBackground(new Color(30, 144, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 0, SpringLayout.NORTH, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, -155, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -18, SpringLayout.NORTH, table);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, 0, SpringLayout.EAST, table);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new vista.Nacionalidades().setVisible(true);
+                dispose();
+			}
+		});
+		contentPane.add(btnNewButton_1);
 	}
 
 }
